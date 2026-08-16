@@ -3,6 +3,7 @@ import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
 import Sustainability from './components/Sustainability';
+import SustainableGifting from './components/SustainableGifting';
 import Craft from './components/Craft';
 import Process from './components/Process';
 import CTA from './components/CTA';
@@ -17,6 +18,7 @@ function App() {
         <Hero />
         <Portfolio />
         <Sustainability />
+        <SustainableGifting />
         <Craft />
         <Process />
         <CTA />
