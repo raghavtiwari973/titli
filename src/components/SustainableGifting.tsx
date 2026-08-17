@@ -39,12 +39,7 @@ export default function SustainableGifting() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Gift className="text-titli-coral" size={24} />
-            <p className="text-xs tracking-[0.2em] uppercase text-titli-coral font-semibold">
-              Conscious Choices
-            </p>
-          </div>
+
           <h2 className="font-serif text-4xl lg:text-5xl text-titli-plum dark:text-titli-warm-white font-bold mb-6">
             Sustainable Gifting
           </h2>
