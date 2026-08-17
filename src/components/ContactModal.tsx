@@ -153,7 +153,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         </label>
                         <input
                           type="email"
-                          name="email"
+                          name="semail"
                           value={formData.email}
                           onChange={handleChange}
                           required

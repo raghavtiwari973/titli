@@ -65,16 +65,16 @@ export default function Footer() {
                   className="group flex items-center gap-3 text-titli-warm-white/60 text-sm hover:text-titli-pink transition-all duration-300"
                 >
                   <Mail size={16} className="text-titli-pink transition-transform duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_4px_8px_rgba(242,182,200,0.4)]" />
-                  hello@titli.studio
+                  [EMAIL_ADDRESS]
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919109307917"
                   className="group flex items-center gap-3 text-titli-warm-white/60 text-sm hover:text-titli-pink transition-all duration-300"
                 >
                   <Phone size={16} className="text-titli-pink transition-transform duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_4px_8px_rgba(242,182,200,0.4)]" />
-                  +91 98765 43210
+                  +91 91093 07917
                 </a>
               </li>
               <li className="flex items-center gap-3 text-titli-warm-white/60 text-sm">
