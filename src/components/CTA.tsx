@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Instagram, Facebook, Youtube, MapPin, Phone, Globe } from 'lucide-react';
+import { ArrowRight, Instagram, Facebook, Youtube, MapPin, Phone, Globe, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { TitliMark } from './TitliLogo';
 import { supabase } from '../lib/supabase';
@@ -114,6 +114,22 @@ export default function CTA() {
                 <p className="text-titli-warm-white text-base">
                   +91 9109307917
                 </p>
+              </div>
+            </div>
+
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-titli-warm-white/10 to-transparent"></div>
+
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-titli-gold/10 text-titli-gold flex items-center justify-center flex-none border border-titli-gold/20 shadow-inner">
+                <Mail size={20} />
+              </div>
+              <div>
+                <p className="text-xs tracking-[0.2em] uppercase text-titli-gold/80 mb-1.5 font-medium">
+                  Email
+                </p>
+                <a href="mailto:titlisustainableevents@gmail.com" className="text-titli-warm-white text-sm sm:text-base hover:text-titli-gold transition-colors break-all">
+                  titlisustainableevents@gmail.com
+                </a>
               </div>
             </div>
 

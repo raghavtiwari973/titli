@@ -61,11 +61,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:hello@titli.studio"
+                  href="mailto:titlisustainableevents@gmail.com"
                   className="group flex items-center gap-3 text-titli-warm-white/60 text-sm hover:text-titli-pink transition-all duration-300"
                 >
                   <Mail size={16} className="text-titli-pink transition-transform duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_4px_8px_rgba(242,182,200,0.4)]" />
-                  [EMAIL_ADDRESS]
+                  titlisustainableevents@gmail.com
                 </a>
               </li>
               <li>
