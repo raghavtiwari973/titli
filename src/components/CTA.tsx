@@ -79,13 +79,13 @@ export default function CTA() {
 
         <p className="text-lg text-titli-warm-white/80 leading-relaxed max-w-xl mx-auto mb-12">
           Whether it's an intimate gathering, a grand celebration, or a
-          thoughtful gift — we'd love to help your idea take flight.
+          thoughtful gift — we'd love to help your emotions take a colourful flight.
         </p>
 
-        <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 text-left items-start">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 text-left items-stretch">
 
           {/* Contact details (Left side) */}
-          <div className="flex-none lg:w-80 flex flex-col gap-8 bg-titli-warm-white/5 backdrop-blur-md border border-titli-warm-white/10 rounded-2xl p-6 sm:p-10 h-fit">
+          <div className="flex-none lg:w-80 flex flex-col justify-between gap-8 bg-titli-warm-white/5 backdrop-blur-md border border-titli-warm-white/10 rounded-2xl p-6 sm:p-10">
 
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-titli-gold/10 text-titli-gold flex items-center justify-center flex-none border border-titli-gold/20 shadow-inner">
@@ -258,7 +258,7 @@ export default function CTA() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={4}
+                    rows={6}
                     placeholder="Message..."
                     className="w-full p-3 rounded-lg border border-titli-warm-white/20 bg-titli-warm-white/10 text-titli-warm-white placeholder:text-titli-warm-white/40 focus:outline-none focus:border-titli-gold transition-colors resize-none"
                   />

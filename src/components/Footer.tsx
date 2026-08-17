@@ -24,7 +24,7 @@ export default function Footer() {
             />
             <p className="mt-5 text-titli-warm-white/60 text-sm leading-relaxed max-w-xs">
               Sustainable events and giftings, thoughtfully crafted to be
-              remembered. Where ideas take flight.
+              remembered. Where emotions take a colourful flight.
             </p>
           </div>
 
@@ -103,7 +103,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Titli. Crafted with care.
           </p>
           <p className="text-titli-warm-white/40 text-xs tracking-wide">
-            Where ideas take flight.
+            Where emotions take a colourful flight.
           </p>
         </div>
       </motion.div>

@@ -12,7 +12,7 @@ export function TitliMark({ className = '', size = 48 }: { className?: string; s
       alt="Titli Mark"
       width={size}
       height={size}
-      className={`object-contain mix-blend-multiply ${className}`}
+      className={`object-cover rounded-full shadow-sm ${className}`}
     />
   );
 }

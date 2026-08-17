@@ -42,7 +42,7 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
+
           {/* Left: text */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -50,10 +50,10 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="lg:col-span-7 flex flex-col items-start text-left"
           >
-            <h1 className="font-serif font-bold text-titli-plum dark:text-titli-warm-white leading-[1.1] tracking-tight text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-balance">
-              Where Ideas
+            <h1 className="font-serif font-bold text-titli-plum dark:text-titli-warm-white leading-[1.1] tracking-tight text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
+              Where emotions
               <br />
-              <span className="butterfly-text">Take Flight.</span>
+              take a <span className="butterfly-text">colourful flight</span>
             </h1>
 
             <p className="mt-6 font-sans text-xl text-titli-plum-deep dark:text-titli-warm-white/80 tracking-wide font-medium">
@@ -96,18 +96,18 @@ export default function Hero() {
             <div className="relative w-full max-w-xs sm:max-w-[300px] lg:max-w-[360px]">
               {/* Unique Stylized Logo Container */}
               <div className="relative aspect-square w-full mx-auto flex items-center justify-center">
-                
+
                 {/* Animated Outer Rings */}
                 <div className="absolute -inset-4 sm:-inset-6 border-[2px] border-dashed border-titli-coral/60 dark:border-titli-coral/30 rounded-full animate-[spin_40s_linear_infinite]" />
                 <div className="absolute -inset-1 sm:-inset-2 border-[1px] border-titli-plum/50 dark:border-titli-plum/20 rounded-full animate-[spin_25s_linear_infinite_reverse]" />
-                
+
                 {/* Glowing Background Orbs */}
                 <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-titli-coral to-titli-pink rounded-full blur-3xl opacity-60 animate-pulse-slow" />
                 <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-tr from-titli-lavender to-titli-plum rounded-full blur-3xl opacity-50 animate-pulse-slow" style={{ animationDelay: '2s' }} />
 
                 {/* Glassmorphism Main Card */}
                 <div className="relative w-full h-full rounded-full p-2 sm:p-3 bg-white/40 dark:bg-black/20 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-[0_20px_50px_-12px_rgba(107,33,85,0.3)] z-10 flex items-center justify-center group hover:shadow-[0_30px_60px_-15px_rgba(107,33,85,0.4)] transition-all duration-700 ease-out">
-                  
+
                   {/* Inner Image Container */}
                   <div className="relative w-full h-full rounded-full overflow-hidden bg-white shadow-inner flex items-center justify-center">
                     <img
@@ -116,7 +116,7 @@ export default function Hero() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
                       loading="eager"
                     />
-                    
+
                     {/* Subtle Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-titli-plum/20 rounded-full mix-blend-multiply" />
                   </div>
