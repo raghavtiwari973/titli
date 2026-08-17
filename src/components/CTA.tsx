@@ -112,7 +112,7 @@ export default function CTA() {
                   Phone
                 </p>
                 <p className="text-titli-warm-white text-base">
-                  +91 95958 68561
+                  +91 9109307917
                 </p>
               </div>
             </div>
@@ -152,6 +152,13 @@ export default function CTA() {
                 <a href="#" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="X (formerly Twitter)">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+                <a href="https://wa.me/919109307917" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="WhatsApp">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                    <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
                   </svg>
                 </a>
               </div>
@@ -205,7 +212,7 @@ export default function CTA() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      placeholder="+91 00000 00000"
+                      placeholder="+91 xxxxx xxxxx"
                       className="w-full p-3 rounded-lg border border-titli-warm-white/20 bg-titli-warm-white/10 text-titli-warm-white placeholder:text-titli-warm-white/40 focus:outline-none focus:border-titli-gold transition-colors"
                     />
                   </div>
