@@ -43,7 +43,7 @@ export default function Navbar() {
           : 'bg-transparent'
       } ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
     >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-center gap-8 lg:gap-12 h-20 w-full">
+      <nav className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-end md:justify-center gap-8 lg:gap-12 h-20 w-full">
         
         {/* Desktop nav */}
         <div className="hidden md:flex flex-none justify-center">
@@ -73,9 +73,9 @@ export default function Navbar() {
         </div>
 
         {/* Mobile toggle */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center">
           <button
-            className="text-titli-plum"
+            className="text-titli-plum bg-white/90 p-2.5 rounded-full shadow-sm backdrop-blur-sm"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >

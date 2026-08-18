@@ -143,7 +143,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-7 flex flex-col items-start text-left"
+            className="order-2 lg:order-1 lg:col-span-7 flex flex-col items-start text-left"
           >
             <h1 className="font-serif font-bold text-titli-plum dark:text-titli-warm-white leading-[1.1] tracking-tight text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
               Where emotions
@@ -186,7 +186,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="lg:col-span-5 w-full flex items-center justify-center mt-12 lg:mt-0"
+            className="order-1 lg:order-2 lg:col-span-5 w-full flex items-center justify-center mt-12 lg:mt-0"
           >
             <div className="relative w-full max-w-xs sm:max-w-[300px] lg:max-w-[360px]">
               {/* Unique Stylized Logo Container */}
