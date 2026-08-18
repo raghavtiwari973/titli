@@ -1,6 +1,101 @@
+import { useState, useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Lottie } from 'lottie-react';
 import TitliLogo from './TitliLogo';
+
+const LottieButterfly = ({
+  animationPath,
+  delay = 0,
+  className = "",
+  duration = 10,
+  scale = 1,
+  moveX = [0, 25, -15, 20, 0],
+  moveY = [0, -25, 20, -15, 0],
+}: {
+  animationPath: string;
+  delay?: number;
+  className?: string;
+  duration?: number;
+  scale?: number;
+  moveX?: number[];
+  moveY?: number[];
+}) => {
+  const [animationData, setAnimationData] = useState<any>(null);
+  const [dodgeOffset, setDodgeOffset] = useState({ x: 0, y: 0 });
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    fetch(animationPath)
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load: " + res.status);
+        return res.json();
+      })
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error('Error loading Lottie:', err));
+  }, [animationPath]);
+
+  const butterflyRef = useRef<HTMLDivElement>(null);
+  const isDodging = useRef(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!butterflyRef.current || isDodging.current) return;
+      const rect = butterflyRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      const dist = Math.hypot(e.clientX - centerX, e.clientY - centerY);
+      if (dist < 80) { // Dodge when cursor is within 80px
+        isDodging.current = true;
+        // Calculate angle away from cursor
+        const angle = Math.atan2(centerY - e.clientY, centerX - e.clientX);
+        const distance = 100 + Math.random() * 50;
+        setDodgeOffset({ x: Math.cos(angle) * distance, y: Math.sin(angle) * distance });
+
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        timeoutRef.current = setTimeout(() => {
+          setDodgeOffset({ x: 0, y: 0 });
+          setTimeout(() => { isDodging.current = false; }, 800);
+        }, 1500);
+      }
+    };
+    
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return (
+    <motion.div
+      ref={butterflyRef}
+      className={`absolute z-[100] pointer-events-none ${className}`}
+      style={{ width: 150, height: 150 }}
+      animate={{ x: dodgeOffset.x, y: dodgeOffset.y }}
+      transition={{ type: "spring", stiffness: 100, damping: 10 }}
+    >
+      <motion.div
+        className="w-full h-full pointer-events-none"
+        style={{ scale }}
+        animate={{
+          x: moveX,
+          y: moveY,
+          rotate: [0, 20, -15, 15, 0],
+        }}
+        transition={{
+          duration: duration,
+          ease: "easeInOut",
+          repeat: Infinity,
+          delay: delay,
+        }}
+      >
+        {animationData ? (
+          <Lottie src={animationData} loop={true} autoplay={true} style={{ width: '100%', height: '100%' }} />
+        ) : null}
+      </motion.div>
+    </motion.div>
+  );
+};
+
 
 export default function Hero() {
   return (
@@ -97,6 +192,22 @@ export default function Hero() {
               {/* Unique Stylized Logo Container */}
               <div className="relative aspect-square w-full mx-auto flex items-center justify-center">
 
+                {/* Lottie Butterflies around the logo */}
+                {/* Type A */}
+                <LottieButterfly animationPath="/Butterfly Lottie Animation (1).json" className="-top-8 -left-6" delay={1.2} duration={24} scale={0.45} moveX={[0, -60, -30, -80, 0]} moveY={[0, -40, -70, -20, 0]} />
+                <LottieButterfly animationPath="/Butterfly Lottie Animation (1).json" className="top-1/3 -right-12" delay={4.2} duration={28} scale={0.5} moveX={[0, 60, 100, 40, 0]} moveY={[0, 80, -60, 50, 0]} />
+                <LottieButterfly animationPath="/Butterfly Lottie Animation (1).json" className="-bottom-4 -left-10" delay={1.8} duration={26} scale={0.4} moveX={[0, -70, -40, -90, 0]} moveY={[0, 50, 80, 30, 0]} />
+
+                {/* Type B */}
+                <LottieButterfly animationPath="/Butterfly Lottie Animation (2).json" className="-top-12 left-1/3" delay={3.1} duration={27} scale={0.55} moveX={[0, -80, 60, -40, 0]} moveY={[0, -60, -90, -30, 0]} />
+                <LottieButterfly animationPath="/Butterfly Lottie Animation (2).json" className="-bottom-6 -right-6" delay={2.4} duration={25} scale={0.45} moveX={[0, 50, 90, 30, 0]} moveY={[0, 60, 100, 40, 0]} />
+                <LottieButterfly animationPath="/Butterfly Lottie Animation (2).json" className="top-1/2 -left-12" delay={6.2} duration={29} scale={0.5} moveX={[0, -80, -40, -100, 0]} moveY={[0, -60, 70, -40, 0]} />
+
+                {/* Type C */}
+                <LottieButterfly animationPath="/Butterfly Lottie Animation.json" className="-top-4 -right-8" delay={0.5} duration={26} scale={0.4} moveX={[0, 60, 90, 40, 0]} moveY={[0, -50, -80, -30, 0]} />
+                <LottieButterfly animationPath="/Butterfly Lottie Animation.json" className="-bottom-10 left-1/3" delay={5.5} duration={24} scale={0.55} moveX={[0, 70, -60, 40, 0]} moveY={[0, 60, 100, 40, 0]} />
+                <LottieButterfly animationPath="/Butterfly Lottie Animation.json" className="top-2/3 right-2" delay={3.8} duration={28} scale={0.45} moveX={[0, 70, 40, 90, 0]} moveY={[0, 50, -30, 60, 0]} />
+
                 {/* Animated Outer Rings */}
                 <div className="absolute -inset-4 sm:-inset-6 border-[2px] border-dashed border-titli-coral/60 dark:border-titli-coral/30 rounded-full animate-[spin_40s_linear_infinite]" />
                 <div className="absolute -inset-1 sm:-inset-2 border-[1px] border-titli-plum/50 dark:border-titli-plum/20 rounded-full animate-[spin_25s_linear_infinite_reverse]" />
@@ -110,11 +221,13 @@ export default function Hero() {
 
                   {/* Inner Image Container */}
                   <div className="relative w-full h-full rounded-full overflow-hidden bg-white shadow-inner flex items-center justify-center">
-                    <img
-                      src="./logo.jpeg"
-                      alt="Titli Logo"
+                    <video
+                      src="/logo-video.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
-                      loading="eager"
                     />
 
                     {/* Subtle Overlay */}

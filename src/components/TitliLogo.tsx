@@ -7,9 +7,12 @@ interface TitliLogoProps {
 
 export function TitliMark({ className = '', size = 48 }: { className?: string; size?: number }) {
   return (
-    <img
-      src="/logo.jpeg"
-      alt="Titli Mark"
+    <video
+      src="/logo-video.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
       width={size}
       height={size}
       className={`object-cover rounded-full shadow-sm ${className}`}
