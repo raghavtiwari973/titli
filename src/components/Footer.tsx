@@ -1,4 +1,4 @@
-import { Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Mail, Phone, MapPin, Facebook, Youtube, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import TitliLogo from './TitliLogo';
 
@@ -77,17 +77,48 @@ export default function Footer() {
                   +91 91093 07917
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-titli-warm-white/60 text-sm">
-                <MapPin size={16} className="text-titli-pink" />
-                Bangalore, India
-              </li>
               <li>
                 <a
-                  href="#"
+                  href="https://wa.me/919109307917"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-3 text-titli-warm-white/60 text-sm hover:text-titli-pink transition-all duration-300"
                 >
-                  <Instagram size={16} className="text-titli-pink transition-transform duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_4px_8px_rgba(242,182,200,0.4)]" />
-                  @titli.studio
+                  <MessageCircle size={16} className="text-titli-pink transition-transform duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_4px_8px_rgba(242,182,200,0.4)]" />
+                  WhatsApp
+                </a>
+              </li>
+              <li className="flex items-start gap-3 text-titli-warm-white/60 text-sm max-w-xs">
+                <MapPin size={16} className="text-titli-pink flex-shrink-0 mt-1" />
+                <span>[Studio Address Will Be Updated Here]</span>
+              </li>
+              <li className="flex items-center gap-4 pt-4">
+                <a
+                  href="https://instagram.com/titli.studio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group text-titli-warm-white/60 hover:text-titli-pink transition-all duration-300"
+                  title="Instagram"
+                >
+                  <Instagram size={20} className="text-titli-pink transition-transform duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_4px_8px_rgba(242,182,200,0.4)]" />
+                </a>
+                <a
+                  href="https://facebook.com/titlistudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group text-titli-warm-white/60 hover:text-titli-pink transition-all duration-300"
+                  title="Facebook"
+                >
+                  <Facebook size={20} className="text-titli-pink transition-transform duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_4px_8px_rgba(242,182,200,0.4)]" />
+                </a>
+                <a
+                  href="https://youtube.com/@titlistudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group text-titli-warm-white/60 hover:text-titli-pink transition-all duration-300"
+                  title="YouTube"
+                >
+                  <Youtube size={20} className="text-titli-pink transition-transform duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_4px_8px_rgba(242,182,200,0.4)]" />
                 </a>
               </li>
             </ul>

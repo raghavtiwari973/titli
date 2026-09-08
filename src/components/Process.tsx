@@ -9,6 +9,7 @@ const stages = [
     text: 'We listen to your story, your vision, and the feeling you want to leave behind.',
     color: '#D9DDF7',
     textColor: 'text-titli-plum',
+    image: '/7.jpeg',
   },
   {
     number: '02',
@@ -17,6 +18,7 @@ const stages = [
     text: 'Mood boards, palettes, and concepts take shape — your idea gains its wings.',
     color: '#F2B6C8',
     textColor: 'text-titli-plum',
+    image: '/5.jpeg',
   },
   {
     number: '03',
@@ -25,6 +27,7 @@ const stages = [
     text: 'Every detail is handmade, sourced, and assembled with meticulous care.',
     color: '#F7C9A5',
     textColor: 'text-titli-plum',
+    image: '/3.jpeg',
   },
   {
     number: '04',
@@ -33,6 +36,7 @@ const stages = [
     text: 'We bring it to life on the day, so you can be fully present in the moment.',
     color: '#A9DCD5',
     textColor: 'text-titli-plum',
+    image: '/2.jpeg',
   },
 ];
 
@@ -113,8 +117,16 @@ export default function Process() {
                         className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-50 blur-xl transition-all duration-500"
                         style={{ backgroundColor: stage.color }}
                       />
+                      {/* Background Image */}
+                      <div className="absolute inset-1 rounded-full overflow-hidden">
+                        <img 
+                          src={stage.image} 
+                          alt={stage.title} 
+                          className="w-full h-full object-cover opacity-30 group-hover:opacity-70 transition-opacity duration-500 mix-blend-overlay" 
+                        />
+                      </div>
                       {/* Inner circle */}
-                      <div className="absolute inset-3 rounded-full bg-white/40 flex items-center justify-center backdrop-blur-md border border-white/50 shadow-inner">
+                      <div className="absolute inset-3 rounded-full bg-white/50 dark:bg-black/20 flex items-center justify-center backdrop-blur-md border border-white/50 shadow-inner">
                         <Icon size={28} className={stage.textColor} />
                       </div>
                       {/* Ring */}

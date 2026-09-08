@@ -2,19 +2,24 @@ import { motion } from 'framer-motion';
 
 const craftImages = [
   {
-    src: 'https://images.pexels.com/photos/7340413/pexels-photo-7340413.jpeg?auto=compress&cs=tinysrgb&h=900&w=700',
-    alt: 'Elegant gift wrapping with lace flower',
-    label: 'The Gifting',
+    src: '/10.jpeg',
+    alt: 'Hand-painted art and canvases',
+    label: 'The Canvas',
   },
   {
-    src: 'https://images.pexels.com/photos/4614251/pexels-photo-4614251.jpeg?auto=compress&cs=tinysrgb&h=900&w=700',
-    alt: 'Wooden spools with colorful threads',
-    label: 'The Texture',
+    src: '/13.jpeg',
+    alt: 'Intricate floral and basket arrangement',
+    label: 'The Craft',
   },
   {
-    src: 'https://images.pexels.com/photos/35316350/pexels-photo-35316350.jpeg?auto=compress&cs=tinysrgb&h=900&w=700',
-    alt: 'Hands crafting with fabric and ribbon',
-    label: 'The Hand',
+    src: '/8.jpeg',
+    alt: 'Vibrant marigold detailing and patterns',
+    label: 'The Detail',
+  },
+  {
+    src: '/14.jpeg',
+    alt: 'Celestial canopy and starry lights',
+    label: 'The Ambience',
   },
 ];
 
@@ -45,8 +50,8 @@ export default function Craft() {
           </p>
         </motion.div>
 
-        {/* Triptych Image Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 items-center">
+        {/* Image Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center">
           {craftImages.map((img, index) => (
             <motion.div
               key={img.label}
@@ -54,15 +59,17 @@ export default function Craft() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`relative rounded-sm overflow-hidden group cursor-pointer ${index === 1 ? 'md:mt-12' : ''}`}
+              className={`relative rounded-sm overflow-hidden group cursor-pointer ${index % 2 !== 0 ? 'lg:mt-12' : ''}`}
             >
               {/* Offset frame */}
               <div
-                className={`absolute -inset-2 rounded-lg ${index === 0
+                className={`absolute -inset-2 rounded-lg ${index % 4 === 0
                     ? 'bg-titli-peach/30'
-                    : index === 1
+                    : index % 4 === 1
                       ? 'bg-titli-pink/30'
-                      : 'bg-titli-gold/20'
+                      : index % 4 === 2 
+                        ? 'bg-titli-gold/20'
+                        : 'bg-titli-aqua/30'
                   } transition-transform duration-500 group-hover:-rotate-2`}
               />
               <div className="relative overflow-hidden rounded-lg shadow-xl">

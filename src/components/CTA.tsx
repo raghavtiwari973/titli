@@ -67,7 +67,7 @@ export default function CTA() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center"
+        className="relative max-w-7xl mx-auto w-full px-6 lg:px-12 text-center"
       >
 
 
@@ -82,10 +82,10 @@ export default function CTA() {
           thoughtful gift — we'd love to help your emotions take a colourful flight.
         </p>
 
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 text-left items-stretch">
+        <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-16 text-left items-stretch">
 
           {/* Contact details (Left side) */}
-          <div className="flex-none lg:w-80 flex flex-col justify-between gap-8 bg-titli-warm-white/5 backdrop-blur-md border border-titli-warm-white/10 rounded-2xl p-6 sm:p-10">
+          <div className="flex-none lg:w-[450px] flex flex-col justify-between gap-8 bg-titli-warm-white/5 backdrop-blur-md border border-titli-warm-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl">
 
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-titli-gold/10 text-titli-gold flex items-center justify-center flex-none border border-titli-gold/20 shadow-inner">
@@ -96,7 +96,7 @@ export default function CTA() {
                   Studio
                 </p>
                 <p className="text-titli-warm-white text-base">
-                  xyz, India
+                  Indore, India
                 </p>
               </div>
             </div>
@@ -151,38 +151,41 @@ export default function CTA() {
 
             <div className="w-full h-px bg-gradient-to-r from-transparent via-titli-warm-white/10 to-transparent"></div>
 
-            <div>
-              <p className="text-xs tracking-[0.2em] uppercase text-titli-gold/80 mb-4 font-medium text-center lg:text-left">
-                Follow Us
-              </p>
-              <div className="flex items-center justify-center lg:justify-start gap-4 text-titli-warm-white/80">
-                <a href="#" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="Instagram">
-                  <Instagram size={18} strokeWidth={1.5} />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="Facebook">
-                  <Facebook size={18} strokeWidth={1.5} />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="YouTube">
-                  <Youtube size={18} strokeWidth={1.5} />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="X (formerly Twitter)">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                </a>
-                <a href="https://wa.me/919109307917" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="WhatsApp">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-                    <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-                  </svg>
-                </a>
+            <div className="flex items-start gap-4">
+              <div className="w-12 flex-none"></div>
+              <div className="flex-1">
+                <p className="text-xs tracking-[0.2em] uppercase text-titli-gold/80 mb-4 font-medium text-center lg:text-left">
+                  Follow Us
+                </p>
+                <div className="flex items-center justify-center lg:justify-start gap-4 text-titli-warm-white/80">
+                  <a href="#" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="Instagram">
+                    <Instagram size={18} strokeWidth={1.5} />
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="Facebook">
+                    <Facebook size={18} strokeWidth={1.5} />
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="YouTube">
+                    <Youtube size={18} strokeWidth={1.5} />
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="X (formerly Twitter)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
+                  <a href="https://wa.me/919109307917" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-titli-warm-white/5 flex items-center justify-center hover:bg-titli-gold hover:text-titli-plum transition-all duration-300" aria-label="WhatsApp">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                      <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Form (Right side) */}
-          <div className="flex-1 w-full bg-titli-warm-white/5 backdrop-blur-md border border-titli-warm-white/10 rounded-2xl p-6 sm:p-10">
+          <div className="flex-1 w-full flex flex-col bg-titli-warm-white/5 backdrop-blur-md border border-titli-warm-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl">
             {isSuccess ? (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -202,7 +205,7 @@ export default function CTA() {
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5 h-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-semibold text-titli-warm-white/90 mb-2">
@@ -215,7 +218,7 @@ export default function CTA() {
                       onChange={handleChange}
                       required
                       placeholder="Name"
-                      className="w-full p-3 rounded-lg border border-titli-warm-white/20 bg-titli-warm-white/10 text-titli-warm-white placeholder:text-titli-warm-white/40 focus:outline-none focus:border-titli-gold transition-colors"
+                      className="w-full p-4 rounded-xl border border-titli-warm-white/20 bg-titli-warm-white/10 text-titli-warm-white placeholder:text-titli-warm-white/40 focus:outline-none focus:border-titli-gold focus:ring-1 focus:ring-titli-gold transition-all"
                     />
                   </div>
                   <div>
@@ -229,7 +232,7 @@ export default function CTA() {
                       onChange={handleChange}
                       required
                       placeholder="+91 xxxxx xxxxx"
-                      className="w-full p-3 rounded-lg border border-titli-warm-white/20 bg-titli-warm-white/10 text-titli-warm-white placeholder:text-titli-warm-white/40 focus:outline-none focus:border-titli-gold transition-colors"
+                      className="w-full p-4 rounded-xl border border-titli-warm-white/20 bg-titli-warm-white/10 text-titli-warm-white placeholder:text-titli-warm-white/40 focus:outline-none focus:border-titli-gold focus:ring-1 focus:ring-titli-gold transition-all"
                     />
                   </div>
                 </div>
@@ -245,7 +248,7 @@ export default function CTA() {
                     onChange={handleChange}
                     required
                     placeholder="xyz@example.com"
-                    className="w-full p-3 rounded-lg border border-titli-warm-white/20 bg-titli-warm-white/10 text-titli-warm-white placeholder:text-titli-warm-white/40 focus:outline-none focus:border-titli-gold transition-colors"
+                    className="w-full p-4 rounded-xl border border-titli-warm-white/20 bg-titli-warm-white/10 text-titli-warm-white placeholder:text-titli-warm-white/40 focus:outline-none focus:border-titli-gold focus:ring-1 focus:ring-titli-gold transition-all"
                   />
                 </div>
 
@@ -260,18 +263,20 @@ export default function CTA() {
                     required
                     rows={6}
                     placeholder="Message..."
-                    className="w-full p-3 rounded-lg border border-titli-warm-white/20 bg-titli-warm-white/10 text-titli-warm-white placeholder:text-titli-warm-white/40 focus:outline-none focus:border-titli-gold transition-colors resize-none"
+                    className="w-full flex-1 p-4 rounded-xl border border-titli-warm-white/20 bg-titli-warm-white/10 text-titli-warm-white placeholder:text-titli-warm-white/40 focus:outline-none focus:border-titli-gold focus:ring-1 focus:ring-titli-gold transition-all resize-none min-h-[160px]"
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="mt-4 flex items-center justify-center gap-2 px-6 py-4 bg-titli-warm-white text-titli-plum rounded-sm font-semibold text-sm transition-transform hover:-translate-y-0.5 shadow-md disabled:opacity-70 disabled:cursor-not-allowed hover:bg-titli-gold"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Inquiry'}
-                  {!isSubmitting && <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />}
-                </button>
+                <div className="mt-auto pt-4">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-titli-warm-white text-titli-plum rounded-xl font-bold text-base transition-transform hover:-translate-y-1 shadow-xl hover:shadow-2xl disabled:opacity-70 disabled:cursor-not-allowed hover:bg-titli-gold"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Inquiry'}
+                    {!isSubmitting && <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />}
+                  </button>
+                </div>
               </form>
             )}
           </div>

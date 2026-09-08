@@ -1,5 +1,6 @@
-import { ArrowUpRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Project {
   id: string;
@@ -18,7 +19,7 @@ const projects: Project[] = [
     title: 'Garden of Whispers',
     category: 'Wedding',
     description: 'A floral dreamscape woven into an intimate evening celebration.',
-    image: 'https://images.pexels.com/photos/9644360/pexels-photo-9644360.jpeg?auto=compress&cs=tinysrgb&h=800&w=1000',
+    image: '/1.jpeg',
     frameColor: 'border-titli-lavender/50',
     bgColor: 'bg-titli-lavender-soft',
     shadowColor: 'group-hover:shadow-titli-lavender/40',
@@ -28,7 +29,7 @@ const projects: Project[] = [
     title: 'The Amber Banquet',
     category: 'Corporate Gala',
     description: 'Warm tones and candlelight for an unforgettable year-end gathering.',
-    image: 'https://images.pexels.com/photos/17206105/pexels-photo-17206105.jpeg?auto=compress&cs=tinysrgb&h=800&w=1000',
+    image: '/2.jpeg',
     frameColor: 'border-titli-peach/50',
     bgColor: 'bg-titli-peach-soft',
     shadowColor: 'group-hover:shadow-titli-peach/40',
@@ -38,24 +39,163 @@ const projects: Project[] = [
     title: 'Petals & Promises',
     category: 'Engagement',
     description: 'Soft blush florals and hand-lettered details for a tender moment.',
-    image: 'https://images.pexels.com/photos/17022991/pexels-photo-17022991.jpeg?auto=compress&cs=tinysrgb&h=800&w=1000',
+    image: '/3.jpeg',
     frameColor: 'border-titli-pink/50',
     bgColor: 'bg-titli-pink-soft',
     shadowColor: 'group-hover:shadow-titli-pink/40',
   },
   {
     id: '04',
+    title: 'Heritage Elegance',
+    category: 'Traditional Wedding',
+    description: 'Rich cultural aesthetics blending vibrant colors and timeless rituals.',
+    image: '/4.jpeg',
+    frameColor: 'border-titli-coral/50',
+    bgColor: 'bg-titli-peach-soft',
+    shadowColor: 'group-hover:shadow-titli-coral/40',
+  },
+  {
+    id: '05',
     title: 'Aqua Serenade',
     category: 'Outdoor Reception',
     description: 'Nature-inspired decor under open skies with aqua and mint accents.',
-    image: 'https://images.pexels.com/photos/12954016/pexels-photo-12954016.jpeg?auto=compress&cs=tinysrgb&h=800&w=1000',
+    image: '/5.jpeg',
     frameColor: 'border-titli-aqua/50',
     bgColor: 'bg-titli-aqua-soft',
     shadowColor: 'group-hover:shadow-titli-aqua/40',
   },
+  {
+    id: '06',
+    title: 'Vedic Symphony',
+    category: 'Traditional Decor',
+    description: 'Sacred spaces designed with marigolds, brass elements and devotion.',
+    image: '/6.jpeg',
+    frameColor: 'border-titli-gold/50',
+    bgColor: 'bg-titli-yellow/20',
+    shadowColor: 'group-hover:shadow-titli-gold/40',
+  },
+  {
+    id: '07',
+    title: 'Midnight Bloom',
+    category: 'Reception',
+    description: 'A magical evening setup with hanging floral installations and ambient lighting.',
+    image: '/7.jpeg',
+    frameColor: 'border-titli-lavender/50',
+    bgColor: 'bg-titli-lavender-soft',
+    shadowColor: 'group-hover:shadow-titli-lavender/40',
+  },
+  {
+    id: '08',
+    title: 'Sunny Soiree',
+    category: 'Haldi',
+    description: 'Bright and cheerful decor with sunflowers and yellow drapes for a joyful celebration.',
+    image: '/8.jpeg',
+    frameColor: 'border-titli-peach/50',
+    bgColor: 'bg-titli-peach-soft',
+    shadowColor: 'group-hover:shadow-titli-peach/40',
+  },
+  {
+    id: '09',
+    title: 'Enchanted Forest',
+    category: 'Sangeet',
+    description: 'Lush greenery and mystical lighting creating a woodland fantasy.',
+    image: '/9.jpeg',
+    frameColor: 'border-titli-pink/50',
+    bgColor: 'bg-titli-pink-soft',
+    shadowColor: 'group-hover:shadow-titli-pink/40',
+  },
+  {
+    id: '11',
+    title: 'Pastel Poetry',
+    category: 'Mehendi',
+    description: 'Soft pastels and intricate patterns setting a relaxed and beautiful vibe.',
+    image: '/11.jpeg',
+    frameColor: 'border-titli-aqua/50',
+    bgColor: 'bg-titli-aqua-soft',
+    shadowColor: 'group-hover:shadow-titli-aqua/40',
+  },
+  {
+    id: '12',
+    title: 'Golden Glow',
+    category: 'Anniversary',
+    description: 'Elegant golden accents with white lilies for a sophisticated celebration.',
+    image: '/12.jpeg',
+    frameColor: 'border-titli-gold/50',
+    bgColor: 'bg-titli-yellow/20',
+    shadowColor: 'group-hover:shadow-titli-gold/40',
+  },
+  {
+    id: '13',
+    title: 'Rustic Charm',
+    category: 'Intimate Gathering',
+    description: 'Earthy tones, pampas grass, and wooden textures for a cozy event.',
+    image: '/13.jpeg',
+    frameColor: 'border-titli-lavender/50',
+    bgColor: 'bg-titli-lavender-soft',
+    shadowColor: 'group-hover:shadow-titli-lavender/40',
+  },
 ];
 
+const getBentoClasses = (index: number) => {
+  const layout = [
+    // Rows 1 & 2
+    "md:col-span-2 md:row-span-2", // 0
+    "md:col-span-1 md:row-span-1", // 1
+    "md:col-span-1 md:row-span-1", // 2
+    "md:col-span-2 md:row-span-1", // 3
+    // Rows 3 & 4
+    "md:col-span-1 md:row-span-2", // 4
+    "md:col-span-2 md:row-span-1", // 5
+    "md:col-span-1 md:row-span-1", // 6
+    "md:col-span-1 md:row-span-1", // 7
+    "md:col-span-1 md:row-span-1", // 8
+    "md:col-span-1 md:row-span-1", // 9
+    // Rows 5 & 6
+    "md:col-span-2 md:row-span-1", // 10
+    "md:col-span-2 md:row-span-1", // 11
+  ];
+  return layout[index] || "md:col-span-1 md:row-span-1";
+};
+
 export default function Portfolio() {
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
+  const openModal = (index: number) => {
+    setSelectedImageIndex(index);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setSelectedImageIndex(null);
+    document.body.style.overflow = 'auto';
+  };
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex + 1) % projects.length);
+    }
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex - 1 + projects.length) % projects.length);
+    }
+  };
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedImageIndex === null) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowRight') setSelectedImageIndex((selectedImageIndex + 1) % projects.length);
+      if (e.key === 'ArrowLeft') setSelectedImageIndex((selectedImageIndex - 1 + projects.length) % projects.length);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImageIndex]);
+
   return (
     <section
       id="portfolio"
@@ -90,28 +230,29 @@ export default function Portfolio() {
         </motion.div>
 
         {/* Project grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:auto-rows-[340px]">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative cursor-pointer"
+              transition={{ duration: 0.6, delay: (index % 4) * 0.1 }}
+              className={`group relative cursor-pointer flex flex-col ${getBentoClasses(index)}`}
+              onClick={() => openModal(index)}
             >
               {/* Frame background */}
               <div
-                className={`relative ${project.bgColor} p-3 rounded-xl transition-all duration-700 group-hover:shadow-2xl ${project.shadowColor}`}
+                className={`relative flex-grow ${project.bgColor} p-3 rounded-xl transition-all duration-700 group-hover:shadow-2xl ${project.shadowColor} flex flex-col`}
               >
                 {/* Image container */}
                 <div
-                  className={`relative overflow-hidden rounded-lg border-[1px] ${project.frameColor} transition-all duration-500`}
+                  className={`relative flex-grow overflow-hidden rounded-lg border-[1px] ${project.frameColor} transition-all duration-500`}
                 >
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
                   {/* Hover overlay */}
@@ -133,7 +274,7 @@ export default function Portfolio() {
                       fill="none"
                     >
                       <path
-                        d="M0 6 C 20 2, 30 10, 50 6 S 80 2, 100 6 S 110 10, 120 6"
+                         d="M0 6 C 20 2, 30 10, 50 6 S 80 2, 100 6 S 110 10, 120 6"
                         stroke="url(#miniFlight)"
                         strokeWidth="1.5"
                         strokeDasharray="3 4"
@@ -149,7 +290,7 @@ export default function Portfolio() {
                     </svg>
                     <div className="flex items-center gap-2 mt-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 delay-300">
                       <span className="text-titli-warm-white text-sm tracking-widest uppercase text-[10px] font-semibold">
-                        Explore
+                        View Image
                       </span>
                       <ArrowUpRight
                         size={16}
@@ -183,6 +324,64 @@ export default function Portfolio() {
           ))}
         </div>
       </div>
+
+      {/* Image Modal Popup */}
+      <AnimatePresence>
+        {selectedImageIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 sm:p-6 md:p-12"
+            onClick={closeModal}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-50 bg-black/50 p-2 rounded-full backdrop-blur-sm"
+            >
+              <X size={24} />
+            </button>
+            
+            <button
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-50 bg-black/50 p-3 rounded-full backdrop-blur-sm"
+            >
+              <ChevronLeft size={32} />
+            </button>
+
+            <button
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-50 bg-black/50 p-3 rounded-full backdrop-blur-sm"
+            >
+              <ChevronRight size={32} />
+            </button>
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={projects[selectedImageIndex].image}
+                alt={projects[selectedImageIndex].title}
+                className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
+              />
+              <div className="mt-6 text-center">
+                <h3 className="font-serif text-2xl md:text-3xl text-white mb-2">
+                  {projects[selectedImageIndex].title}
+                </h3>
+                <p className="text-white/70">
+                  {projects[selectedImageIndex].category}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
+
