@@ -105,7 +105,7 @@ const projects: Project[] = [
     shadowColor: 'group-hover:shadow-titli-pink/40',
   },
   {
-    id: '11',
+    id: '10',
     title: 'Pastel Poetry',
     category: 'Mehendi',
     description: 'Soft pastels and intricate patterns setting a relaxed and beautiful vibe.',
@@ -115,7 +115,7 @@ const projects: Project[] = [
     shadowColor: 'group-hover:shadow-titli-aqua/40',
   },
   {
-    id: '12',
+    id: '11',
     title: 'Golden Glow',
     category: 'Anniversary',
     description: 'Elegant golden accents with white lilies for a sophisticated celebration.',
@@ -125,7 +125,7 @@ const projects: Project[] = [
     shadowColor: 'group-hover:shadow-titli-gold/40',
   },
   {
-    id: '13',
+    id: '12',
     title: 'Rustic Charm',
     category: 'Intimate Gathering',
     description: 'Earthy tones, pampas grass, and wooden textures for a cozy event.',
@@ -274,7 +274,7 @@ export default function Portfolio() {
                       fill="none"
                     >
                       <path
-                         d="M0 6 C 20 2, 30 10, 50 6 S 80 2, 100 6 S 110 10, 120 6"
+                        d="M0 6 C 20 2, 30 10, 50 6 S 80 2, 100 6 S 110 10, 120 6"
                         stroke="url(#miniFlight)"
                         strokeWidth="1.5"
                         strokeDasharray="3 4"
@@ -341,7 +341,7 @@ export default function Portfolio() {
             >
               <X size={24} />
             </button>
-            
+
             <button
               onClick={prevImage}
               className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-50 bg-black/50 p-3 rounded-full backdrop-blur-sm"
