@@ -15,9 +15,9 @@ export default function Footer() {
         transition={{ duration: 0.8 }}
         className="relative max-w-7xl mx-auto px-6 lg:px-10 py-16"
       >
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
-          <div>
+          <div className="lg:pr-4">
             <TitliLogo
               size={44}
               textClassName="text-titli-warm-white"
@@ -90,11 +90,11 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3 text-titli-warm-white/60 text-sm max-w-xs">
                 <MapPin size={16} className="text-titli-pink flex-shrink-0 mt-1" />
-                <span>[Studio Address Will Be Updated Here]</span>
+                <span>Indore, India</span>
               </li>
               <li className="flex items-center gap-4 pt-4">
                 <a
-                  href="https://instagram.com/titli.studio"
+                  href="https://www.instagram.com/titlisustainableevents/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group text-titli-warm-white/60 hover:text-titli-pink transition-all duration-300"
@@ -102,26 +102,24 @@ export default function Footer() {
                 >
                   <Instagram size={20} className="text-titli-pink transition-transform duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_4px_8px_rgba(242,182,200,0.4)]" />
                 </a>
-                <a
-                  href="https://facebook.com/titlistudio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group text-titli-warm-white/60 hover:text-titli-pink transition-all duration-300"
-                  title="Facebook"
-                >
-                  <Facebook size={20} className="text-titli-pink transition-transform duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_4px_8px_rgba(242,182,200,0.4)]" />
-                </a>
-                <a
-                  href="https://youtube.com/@titlistudio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group text-titli-warm-white/60 hover:text-titli-pink transition-all duration-300"
-                  title="YouTube"
-                >
-                  <Youtube size={20} className="text-titli-pink transition-transform duration-300 group-hover:-translate-y-1 group-hover:drop-shadow-[0_4px_8px_rgba(242,182,200,0.4)]" />
-                </a>
               </li>
             </ul>
+          </div>
+
+          {/* QR Code */}
+          <div className="flex flex-col sm:items-start lg:items-center">
+            <h4 className="font-sans text-lg text-titli-gold font-semibold mb-5 lg:text-center w-full">
+              Scan to Connect
+            </h4>
+            <div className="bg-titli-warm-white/10 backdrop-blur-md p-3 rounded-2xl border border-titli-warm-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)] hover:border-titli-pink/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(242,182,200,0.3)] hover:-translate-y-1 group">
+              <div className="bg-white rounded-xl overflow-hidden p-2">
+                <img 
+                  src="/titli_sustainable_events_qr_with_name.png" 
+                  alt="Titli QR Code" 
+                  className="w-28 h-28 object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
+              </div>
+            </div>
           </div>
         </div>
 
