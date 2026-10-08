@@ -23,33 +23,69 @@ const gifts = [
   { id: 18, title: 'Bamboo Organizer Box with Compartments and Drawer', description: '', image: 'https://i.pinimg.com/1200x/55/59/fe/5559fe041d3b826f7ebd1ee39194abe5.jpg' },
   { id: 19, title: 'Round Woven Bamboo Serving Tray', description: '', image: 'https://i.pinimg.com/736x/a0/ef/80/a0ef8099e50a9b3cdd0fa7b2142fdfd5.jpg' },
   { id: 20, title: 'Handwoven Bamboo Basket with Handle', description: '', image: 'https://i.pinimg.com/736x/33/e3/ea/33e3ea09d802eba85b980aa405547684.jpg' },
+  { id: 21, title: 'Essential Hamper', description: '', image: '/1.png' },
+  { id: 22, title: 'Premium Hamper', description: '', image: '/2.png' },
+  { id: 23, title: 'Luxury Hamper', description: '', image: '/3.png' },
+  { id: 24, title: 'Plant Lover Hamper', description: '', image: '/4.png' },
+  { id: 25, title: 'Wellness Hamper', description: '', image: '/5.png' },
+  { id: 26, title: 'Desi Diwali Hamper', description: '', image: '/6.png' },
+  { id: 27, title: 'Commute Kit', description: '', image: '/7.png' },
+  { id: 28, title: 'Zero Waste Hamper', description: '', image: '/8.png' },
+  { id: 29, title: 'Artisan Hamper', description: '', image: '/9.png' },
+  { id: 30, title: 'Sweet Indulgence Hamper', description: '', image: '/10.png' },
 ];
 
 const ProductCard = ({ gift }: { gift: typeof gifts[0] }) => (
-  <div className="group flex flex-col h-full">
-    <div className="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 shadow-sm group-hover:shadow-xl transition-all duration-500 bg-titli-lavender/10 flex items-center justify-center flex-grow-0">
+  <div className="group relative overflow-hidden rounded-2xl shadow-sm group-hover:shadow-xl transition-all duration-500 bg-titli-lavender/10">
+    {gift.image ? (
+      <img
+        src={gift.image}
+        alt={gift.title}
+        className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+        loading="lazy"
+      />
+    ) : (
+      <div className="text-titli-plum/30 flex flex-col items-center py-24">
+        <Gift size={48} className="mb-2 group-hover:scale-110 transition-transform duration-500" />
+      </div>
+    )}
+    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+    <div className="absolute bottom-0 left-0 w-full p-6 z-10 flex flex-col justify-end transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 pointer-events-none">
+      <h3 className="font-serif text-xl text-white font-semibold mb-2 group-hover:text-titli-coral transition-colors duration-300 drop-shadow-md text-center">
+        {gift.title}
+      </h3>
+      {gift.description && (
+        <p className="text-sm text-white/90 text-center drop-shadow-md">
+          {gift.description}
+        </p>
+      )}
+    </div>
+  </div>
+);
+
+const SmallProductCard = ({ gift }: { gift: typeof gifts[0] }) => (
+  <div className="group flex flex-col bg-white dark:bg-[#1f1e21] rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-white/10 h-full">
+    <div className="relative aspect-[4/5] sm:aspect-square p-2 bg-white dark:bg-[#1f1e21] flex items-center justify-center overflow-hidden">
       {gift.image ? (
         <img
           src={gift.image}
           alt={gift.title}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover rounded-md group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />
       ) : (
-        <div className="text-titli-plum/30 flex flex-col items-center">
-          <Gift size={48} className="mb-2 group-hover:scale-110 transition-transform duration-500" />
-        </div>
+        <Gift size={48} className="text-gray-300" />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-titli-plum/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </div>
-    <div className="text-center flex-grow flex flex-col">
-      <h3 className="font-serif text-xl text-titli-plum dark:text-titli-warm-white font-semibold mb-2 group-hover:text-titli-coral transition-colors duration-300">
+    <div className="p-3 md:p-4 border-t border-gray-50 dark:border-white/5 flex flex-col flex-grow text-left bg-gray-50/50 dark:bg-black/10">
+      <h3 className="font-sans text-sm md:text-base text-gray-800 dark:text-gray-200 font-medium line-clamp-2 group-hover:text-titli-plum transition-colors">
         {gift.title}
       </h3>
-      {gift.description && (
-        <p className="text-sm text-titli-charcoal/70 dark:text-titli-warm-white/60">
-          {gift.description}
-        </p>
+      {gift.description ? (
+        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-1">{gift.description}</p>
+      ) : (
+        <p className="text-xs text-titli-plum dark:text-titli-plum-light mt-1 font-medium">View details</p>
       )}
     </div>
   </div>
@@ -96,7 +132,7 @@ export default function SustainableGifting() {
         </motion.div>
 
         {/* Main Page Grid (Only 3 items) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
           {gifts.slice(0, 3).map((gift, index) => (
             <motion.div
               key={gift.id}
@@ -105,7 +141,7 @@ export default function SustainableGifting() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <ProductCard gift={gift} />
+              <SmallProductCard gift={gift} />
             </motion.div>
           ))}
         </div>
@@ -166,9 +202,11 @@ export default function SustainableGifting() {
 
               {/* Modal Scrollable Content */}
               <div className="p-6 md:p-10 overflow-y-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-8">
                   {gifts.map((gift) => (
-                    <ProductCard key={gift.id} gift={gift} />
+                    <div key={gift.id} className="break-inside-avoid mb-8">
+                      <ProductCard gift={gift} />
+                    </div>
                   ))}
                 </div>
               </div>

@@ -136,26 +136,24 @@ const projects: Project[] = [
   },
 ];
 
-const getBentoClasses = (index: number) => {
-  const layout = [
-    // Rows 1 & 2
-    "md:col-span-2 md:row-span-2", // 0
-    "md:col-span-1 md:row-span-1", // 1
-    "md:col-span-1 md:row-span-1", // 2
-    "md:col-span-2 md:row-span-1", // 3
-    // Rows 3 & 4
-    "md:col-span-1 md:row-span-2", // 4
-    "md:col-span-2 md:row-span-1", // 5
-    "md:col-span-1 md:row-span-1", // 6
-    "md:col-span-1 md:row-span-1", // 7
-    "md:col-span-1 md:row-span-1", // 8
-    "md:col-span-1 md:row-span-1", // 9
-    // Rows 5 & 6
-    "md:col-span-2 md:row-span-1", // 10
-    "md:col-span-2 md:row-span-1", // 11
-  ];
-  return layout[index] || "md:col-span-1 md:row-span-1";
-};
+const SmallProjectCard = ({ project, onClick }: { project: Project, onClick: () => void }) => (
+  <div onClick={onClick} className="group flex flex-col bg-white dark:bg-[#1f1e21] rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-white/10 h-full cursor-pointer">
+    <div className="relative aspect-[4/5] sm:aspect-square p-2 bg-white dark:bg-[#1f1e21] flex items-center justify-center overflow-hidden">
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-full object-cover rounded-md group-hover:scale-105 transition-transform duration-500"
+        loading="lazy"
+      />
+    </div>
+    <div className="p-3 md:p-4 border-t border-gray-50 dark:border-white/5 flex flex-col flex-grow text-left bg-gray-50/50 dark:bg-black/10">
+      <h3 className="font-sans text-sm md:text-base text-gray-800 dark:text-gray-200 font-medium line-clamp-2 group-hover:text-titli-plum transition-colors">
+        {project.title}
+      </h3>
+      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-1">{project.category}</p>
+    </div>
+  </div>
+);
 
 export default function Portfolio() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
@@ -230,7 +228,7 @@ export default function Portfolio() {
         </motion.div>
 
         {/* Project grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:auto-rows-[340px]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -238,88 +236,9 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: (index % 4) * 0.1 }}
-              className={`group relative cursor-pointer flex flex-col ${getBentoClasses(index)}`}
-              onClick={() => openModal(index)}
+              className="h-full"
             >
-              {/* Frame background */}
-              <div
-                className={`relative flex-grow ${project.bgColor} p-3 rounded-xl transition-all duration-700 group-hover:shadow-2xl ${project.shadowColor} flex flex-col`}
-              >
-                {/* Image container */}
-                <div
-                  className={`relative flex-grow overflow-hidden rounded-lg border-[1px] ${project.frameColor} transition-all duration-500`}
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-titli-plum/70 via-titli-plum/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  {/* Hover content */}
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-out">
-                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 delay-100">
-                      <h3 className="font-serif text-3xl md:text-4xl text-titli-warm-white font-medium mb-4">
-                        {project.title}
-                      </h3>
-                      <p className="text-titli-warm-white/90 text-sm max-w-sm mb-6 leading-relaxed hidden sm:block">
-                        {project.description}
-                      </p>
-                    </div>
-                    <svg
-                      className="mt-2 w-32 h-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 delay-200"
-                      viewBox="0 0 120 12"
-                      fill="none"
-                    >
-                      <path
-                        d="M0 6 C 20 2, 30 10, 50 6 S 80 2, 100 6 S 110 10, 120 6"
-                        stroke="url(#miniFlight)"
-                        strokeWidth="1.5"
-                        strokeDasharray="3 4"
-                        fill="none"
-                      />
-                      <defs>
-                        <linearGradient id="miniFlight" x1="0" y1="0" x2="120" y2="0">
-                          <stop stopColor="#D9DDF7" />
-                          <stop offset="0.5" stopColor="#F2B6C8" />
-                          <stop offset="1" stopColor="#A9DCD5" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                    <div className="flex items-center gap-2 mt-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 delay-300">
-                      <span className="text-titli-warm-white text-sm tracking-widest uppercase text-[10px] font-semibold">
-                        View Image
-                      </span>
-                      <ArrowUpRight
-                        size={16}
-                        className="text-titli-warm-white transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Project number */}
-              <div className="flex items-baseline gap-4 mt-6">
-                <span className="font-serif text-4xl text-titli-lavender font-bold">
-                  {project.id}
-                </span>
-                <div>
-                  <p className="text-xs tracking-[0.2em] uppercase text-titli-coral mb-1">
-                    {project.category}
-                  </p>
-                  <h3 className="font-serif text-2xl text-titli-plum font-medium">
-                    {project.title}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Offset decorative dot */}
-              <div
-                className={`absolute -top-2 -right-2 w-4 h-4 rounded-full ${index % 2 === 0 ? 'bg-titli-pink' : 'bg-titli-aqua'} opacity-60`}
-              />
+              <SmallProjectCard project={project} onClick={() => openModal(index)} />
             </motion.div>
           ))}
         </div>

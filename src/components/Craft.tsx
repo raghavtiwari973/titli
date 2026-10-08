@@ -51,7 +51,7 @@ export default function Craft() {
         </motion.div>
 
         {/* Image Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {craftImages.map((img, index) => (
             <motion.div
               key={img.label}
@@ -59,31 +59,22 @@ export default function Craft() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`relative rounded-sm overflow-hidden group cursor-pointer ${index % 2 !== 0 ? 'lg:mt-12' : ''}`}
+              className="h-full"
             >
-              {/* Offset frame */}
-              <div
-                className={`absolute -inset-2 rounded-lg ${index % 4 === 0
-                    ? 'bg-titli-peach/30'
-                    : index % 4 === 1
-                      ? 'bg-titli-pink/30'
-                      : index % 4 === 2 
-                        ? 'bg-titli-gold/20'
-                        : 'bg-titli-aqua/30'
-                  } transition-transform duration-500 group-hover:-rotate-2`}
-              />
-              <div className="relative overflow-hidden rounded-lg shadow-xl">
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-titli-plum/80 via-titli-plum/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-                <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 ease-out">
-                  <span className="font-serif text-3xl text-titli-warm-white font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 delay-100">
+              <div className="group flex flex-col bg-white dark:bg-[#1f1e21] rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-white/10 h-full">
+                <div className="relative aspect-[4/5] sm:aspect-square p-2 bg-white dark:bg-[#1f1e21] flex items-center justify-center overflow-hidden">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover rounded-md group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-3 md:p-4 border-t border-gray-50 dark:border-white/5 flex flex-col flex-grow text-left bg-gray-50/50 dark:bg-black/10">
+                  <h3 className="font-sans text-sm md:text-base text-gray-800 dark:text-gray-200 font-medium line-clamp-2 group-hover:text-titli-plum transition-colors">
                     {img.label}
-                  </span>
+                  </h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-1">{img.alt}</p>
                 </div>
               </div>
             </motion.div>
