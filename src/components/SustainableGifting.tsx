@@ -93,6 +93,15 @@ const SmallProductCard = ({ gift }: { gift: typeof gifts[0] }) => (
 
 export default function SustainableGifting() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [startIndex, setStartIndex] = useState(0);
+
+  // Auto-rotate products every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStartIndex((prev) => (prev + 1) % gifts.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -113,6 +122,8 @@ export default function SustainableGifting() {
     }
   }, [isModalOpen]);
 
+  const displayGifts = [...gifts, ...gifts].slice(startIndex, startIndex + 4);
+
   return (
     <section className="py-24 bg-titli-warm-white dark:bg-[#222125] transition-colors duration-500 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -131,19 +142,23 @@ export default function SustainableGifting() {
           </p>
         </motion.div>
 
-        {/* Main Page Grid (Only 3 items) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-          {gifts.slice(0, 3).map((gift, index) => (
-            <motion.div
-              key={gift.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <SmallProductCard gift={gift} />
-            </motion.div>
-          ))}
+        {/* Main Page Grid (Auto-rotating 4 items) */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+          <AnimatePresence mode="popLayout">
+            {displayGifts.map((gift) => (
+              <motion.div
+                key={gift.id}
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5 }}
+                className="h-full"
+              >
+                <SmallProductCard gift={gift} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         {/* View All Button */}
